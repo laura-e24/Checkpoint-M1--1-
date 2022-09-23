@@ -18,8 +18,18 @@
 // [Para más información del método: https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/isArray]
 
 var restArray = function(array){
-    // Tu código acá
+  // Tu código acá
+  let arraysCount = 0;
 
+  const sum = array.reduce((acc, curr) => {
+    if (Array.isArray(curr)) {
+     arraysCount++;
+     return acc + restArray(curr)
+    }
+    return acc + curr;
+  }, 0)
+
+  return sum - arraysCount;
 }
 
 // No modifiques nada debajo de esta linea //

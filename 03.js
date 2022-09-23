@@ -13,7 +13,16 @@ const { LinkedList } = require('./DS');
 
 LinkedList.prototype.count = function() {
   // Tu código aca:
+  let current = this.head;
+  if (!current) return 0;
+  let counter = 0;
 
+  while (current) {
+    counter = counter + current.value;
+    current = current.next;
+  }
+
+  return counter;
 }
 
 // No modifiques nada debajo de esta linea //
