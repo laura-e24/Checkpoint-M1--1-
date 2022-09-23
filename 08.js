@@ -27,32 +27,31 @@ function countDeep(arr) {
   let und = 0;
   let arrays = 1;
 
-  let resultados = []
+
   arr.forEach(curr => {
+    if (typeof curr === 'object') {
+      arrays = arrays + 1;
+      countDeep(curr)
+     
+    }
     if (typeof curr === 'number') {
-      num++;
-      resultados.push(num)
+      num = num + 1;
+    
     }
     if (typeof curr === 'string') {
-      str++
-      resultados.push(str)
+      str = str + 1
+    
     }
     if (typeof curr === 'boolean') {
-      bool++
-      resultados.push(bool)
+      bool = bool + 1
+     
     }
     if (typeof curr === 'undefined') {
-      und++
-      resultados.push(und)
-    }
-    if (typeof curr === 'object') {
-      arrays++
-      countDeep(curr)
-      resultados.push(arrays)
+      und = und + 1
+     
     }
   });
 
-console.log(arrays - num)
 
   let result1 = arrays - num;
   let result2 = result1 * str;
@@ -66,8 +65,8 @@ console.log(arrays - num)
   // console.log('arrays: ', arrays)
 
   // console.log('result3: ', result3)
-
-  return result4;
+  // (((arrays - num) * str) / bool)**und
+  return result4
 }
 // No modifiques nada debajo de esta linea //
 

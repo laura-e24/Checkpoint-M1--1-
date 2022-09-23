@@ -22,17 +22,19 @@ LinkedList.prototype.simplifyList = function () {
   let list = new LinkedList()
 
   let newList = new LinkedList()
-
   if (!current) return false;
 
+
   while (current) {
+    let searchTerm = current.value;
+    if (this.search(searchTerm) === null) newList.add(current.value)
+
+  
     
-    const search = list.search(current.value)
-    if (!search) newList.add(current.value)
-    console.log(search)
+ 
+
     current = current.next;
   }
-
   return newList;
 }
 // No modifiques nada debajo de esta linea //

@@ -7,7 +7,7 @@ const { LinkedList } = require('./DS');
    Si la lista está vacía, debe retornar false;
    Ejemplo:
      Suponiendo que la lista actual es: Head --> [8] --> [12] --> [3] --> [16]
-     LinkedList.sortList();                      12 - 8 - 3 - 16
+     LinkedList.sortList();                     
                                                 
      Ahora la lista quedaría: Head --> [16] --> [12] --> [8] --> [3]
 */
@@ -17,9 +17,13 @@ LinkedList.prototype.sortList = function () {
   let current = this.head;
 
   if (!current) return false;
+  // if (!current.next) return;
+ 
+  let count = 0
 
   while (current) {
-    current = current.next;
+    
+    
   }
 };
 // No modifiques nada debajo de esta linea //
