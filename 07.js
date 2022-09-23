@@ -23,8 +23,8 @@ var restArray = function(array){
 
   const sum = array.reduce((acc, curr) => {
     if (Array.isArray(curr)) {
-     arraysCount++;
-     return acc + restArray(curr)
+      arraysCount++;
+      return acc + restArray(curr)
     }
     return acc + curr;
   }, 0)
