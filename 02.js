@@ -19,23 +19,16 @@ LinkedList.prototype.simplifyList = function () {
   // Tu código aca:
 
   let current = this.head;
-  let list = new LinkedList()
-
-  let newList = new LinkedList()
+  let newList  = new LinkedList()
+  
   if (!current) return false;
 
-
   while (current) {
-    let searchTerm = current.value;
-    if (this.search(searchTerm) === null) newList.add(current.value)
-
-  
-    
- 
-
+    if (!newList.search(current.value)) newList.add(current.value)
     current = current.next;
   }
-  return newList;
+
+  this.head = newList.head
 }
 // No modifiques nada debajo de esta linea //
 module.exports = {

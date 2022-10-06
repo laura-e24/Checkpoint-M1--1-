@@ -11,38 +11,6 @@
 function insertAndSort(array, obj) {
   // Tu código acá
   
- 
-  
-  if (array.length <= 1) return array;
-
-  let merged = []
-
-  array = merged;
-
-  let objArr = Object.values(obj)
-
-
-  let a = merged.slice(0, Math.floor(merged.length / 2))
-  let b = merged.slice(Math.floor(merged.length / 2))
-
-
-
-  a = insertAndSort(a, obj)
-  b = insertAndSort(b, obj)
-
-  while (a.length && b.length) {
-    if (a[0] < b[0]) {
-      merged.push(a.shift())
-    } else {
-      merged.push(b.shift())
-    }
-  }
-
-  array = merged;
-
-  array = array.concat(a, b)
-
-  return array;
 }
 
 //⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

@@ -15,16 +15,27 @@ const { LinkedList } = require('./DS');
 LinkedList.prototype.sortList = function () {
   // Tu código aca:
   let current = this.head;
-
   if (!current) return false;
-  // if (!current.next) return;
+  let siguiente = null;
  
-  let count = 0
-
   while (current) {
-    
-    
+    siguiente = current.next
+    while (current.next) {
+      
+      
+        let actual = current.value;
+      
+        
+        if (current.value < current.next.value) {
+          current.value = siguiente;
+          current.next.value = actual
+        }
+      
+    }
+
+    current = current.next;
   }
+
 };
 // No modifiques nada debajo de esta linea //
 

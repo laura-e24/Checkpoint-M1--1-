@@ -27,20 +27,31 @@ const { BinarySearchTree } = require("./DS");
 BinarySearchTree.prototype.searchMaxTwo = function () {
   // tu código acá:
 
-  let current = this;
+  // ya que necesito los valores MAYORES, sólo debo
+  // buscar en right, porque en left están los menores
+  let root = this.value;
   let right = this.right;
-  let left = this.left;
 
-  let max1 = this.right.value
-  let max2 = this.left.value
+  // variables que almacenarán los máximos
+  let max1;
+  let max2;
 
-  while (current.right || current.left) {
- 
+  // me posiciono en el ante último nodo,
+  // es decir, aquel cuyo right no tiene right
+  if (right && !right.right) {
+    // el segundo valor máximo será el nodo actual, el ante último del árbol
+    max2 = root;
+    // y el primer valor máximo será el último nodo del árbol
+    max1 = right.value;
 
-
-    right = current.right
-    left = current.left
+    // los retorno en un array para cortar la recursión
+    // una vez alcanzado el ante último nodo
+    return [max1, max2]
   }
+
+  // retorno la recursión sobre la rama right para continuar
+  // buscando valores hasta que se entre al bloque if
+  return right.searchMaxTwo()
 };
 
 // No modifiques nada debajo de esta linea //
