@@ -22,16 +22,26 @@ const { Stack } = require("./DS");
 
 function crearStack(palabra) {
 
+  // si la palabra es un string vacío retornar false
   if (palabra === '') return false;
+  // creo el nuevo stack
   let stack = new Stack()
 
+  // itero sobre el string de parámetro
   for (let el of palabra) {
+    // si el caracter siendo iterado es distinto de '*'
+    // lo pusheo al stack
     if (el !== '*') stack.push(el)
+    // caso contrario...
     else {
+      // si el stack está vacío retornar 'Stack vacío'
       if (stack.size() === 0) return 'Stack vacío'
+      // si no, elimino el último elemento
       else stack.pop()
     }
   }
+
+  // finalmente retorno el stack modificado
   return stack;
   
 }

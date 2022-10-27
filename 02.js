@@ -16,18 +16,27 @@ Pista: Podes usar el metodo search() ya incorporado dentro del prototype de Link
   */
  
 LinkedList.prototype.simplifyList = function () { 
-  // Tu código aca:
-
+  
+  // guardo la cabecera de la lista
   let current = this.head;
+  // creo una nueva lista donde irán los valores
+  // NO repetidos
   let newList  = new LinkedList()
   
+  // si current es null, retornar false
   if (!current) return false;
 
+  // mientras current sea distinto de null...
   while (current) {
+    // si en la lista no existe el valor buscado,
+    // lo pusheo en esa lista
     if (!newList.search(current.value)) newList.add(current.value)
+
+    // sigo recorriendo la lista
     current = current.next;
   }
 
+  // finalmente, la lista original es reemplazada por la nueva
   this.head = newList.head
 }
 // No modifiques nada debajo de esta linea //

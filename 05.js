@@ -20,13 +20,18 @@
 
 
 function mayorMenorOIgual(numFijo) {
-  // Tu código aca:
 
+  // retorno la función closure con su argumento
   return function(arg) {
+    // si el parámetro es null o undefined retornar array vacío
     if (!numFijo) return [];
+    // guardo el resultado de la operación entre ambos argumentos
     let res = numFijo + arg;
+    // si ese resultado es igual a 10 retorno 10
     if (res === 10) return 10;
+    // si es menor retornar...
     else if (res < 10) return "la suma es menor a 10";
+    // si es mayor retornar...
     else return "la suma es mayor a 10";
   }
 }

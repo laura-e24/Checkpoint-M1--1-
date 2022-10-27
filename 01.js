@@ -13,29 +13,37 @@ const { LinkedList } = require('./DS');
 */
 
 LinkedList.prototype.sortList = function () {
-  // Tu código aca:
-  let current = this.head;
-  if (!current) return false;
-  let siguiente = null;
- 
-  while (current) {
-    siguiente = current.next
-    while (current.next) {
-      
-      
-        let actual = current.value;
-      
-        
-        if (current.value < current.next.value) {
-          current.value = siguiente;
-          current.next.value = actual
-        }
-      
-    }
 
+  // guardo la cabecera de la lista
+  let current = this.head;
+  // defino un array donde se guardarán
+  // los valores de la lista
+  const array = []
+
+  // si la lista está vacía retorno false
+  if (!current) return false;
+   
+  // mientras haya elementos en la lista...
+  while (current) {
+    // pusheo al array el valor actual
+    array.push(current.value)
+    // sigo recorriendo la lista
     current = current.next;
   }
 
+  // ordeno el array con todos los valores de la lista
+  array.sort((a, b) => b - a)
+  // redefino la lista original eliminando la referencia
+  // a la cabecera, por lo cual también se eliminan
+  // las referencias a los demás elementos.
+  // (esto es para luego poder reinsertar los valores en orden)
+  this.head = null;
+
+  // por cada elemento del array...
+  array.forEach(element => {
+    // agrego el valor actual a la lista, ya en orden
+    this.add(element)
+  });
 };
 // No modifiques nada debajo de esta linea //
 

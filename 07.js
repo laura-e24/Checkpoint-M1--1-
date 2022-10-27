@@ -18,17 +18,26 @@
 // [Para más información del método: https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/isArray]
 
 var restArray = function(array){
-  // Tu código acá
+  
+  // defino un contador
   let arraysCount = 0;
 
+  // guardo en una variable la sumatoria de los números
   const sum = array.reduce((acc, curr) => {
+    // si el elemento actual es un array
+    // debo sumar primero los números dentro de él
     if (Array.isArray(curr)) {
+      // incremento el contador
       arraysCount++;
+      // el valor acumulado hasta el momento es sumado
+      // al resultado de la recursión
       return acc + restArray(curr)
     }
+    // si no es un array, sólo sumo el acumulador y valor actual
     return acc + curr;
   }, 0)
 
+  // finalmente, al resultado de la suma le resto la cantidad de arrays
   return sum - arraysCount;
 }
 

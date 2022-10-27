@@ -12,16 +12,24 @@ const { LinkedList } = require('./DS');
 */
 
 LinkedList.prototype.count = function() {
-  // Tu código aca:
+
+  // guardo la cabecera de la lista
   let current = this.head;
+
+  // si la lista está vacía retornar 0
   if (!current) return 0;
+  // defino un contador para almacenar los resultados
   let counter = 0;
 
+  // mientras haya elementos en la lista...
   while (current) {
+    // el contador será igual a su valor acumulado más el nodo actual
     counter = counter + current.value;
+    // sigo recorriendo la lista
     current = current.next;
   }
 
+  // retorno el contador
   return counter;
 }
 

@@ -40,24 +40,37 @@ const { BinarySearchTree } = require("./DS");
 // retornar el string que ha sido insertado
 
 BinarySearchTree.prototype.insertWord = function (palabra) {
-  // Tu código acá
+  
+  // creo un nuevo subárbol con la palabra de valor
   let newTree = new BinarySearchTree(palabra)
+  // si la palabrá está vacía retornar false
   if (palabra === '') return false;
+  // si la palabra y el valor del nodo tienen la misma
+  // cantidad de caracteres retornar false
   if (palabra.length === this.value.length) return false;
 
+  // si la palabra tiene menos caracteres que el nodo
+  // deberá guardarse en la rama izquierda
   if (palabra.length < this.value.length) {
-    if (!this.left){
+    // si no hay left, simplemente le inserto el nuevo árbol
+    if (!this.left) {
       this.left = newTree;
     } else {
+      // si SÍ hay left, para saber dónde ubicarlo
+      // debo hacer recursión
       this.left.insertWord(palabra);
     }
   } else {
-    if (this.right === null){
+    // caso contrario (palabra más larga que el nodo), 
+    // repetir el proceso anterior pero en la rama derecha
+    if (!this.right) {
       this.right = newTree;
     } else {
       this.right.insertWord(palabra);
     }
   }
+
+  // finalmente debo retornar la palabra insertada
   return palabra;
 };
 

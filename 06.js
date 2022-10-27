@@ -25,7 +25,6 @@ const { BinarySearchTree } = require("./DS");
 //  Debería retornarnos 44 y 31.
 
 BinarySearchTree.prototype.searchMaxTwo = function () {
-  // tu código acá:
 
   // ya que necesito los valores MAYORES, sólo debo
   // buscar en right, porque en left están los menores
